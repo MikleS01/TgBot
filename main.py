@@ -10,7 +10,7 @@ dp = Dispatcher()
 
 @dp.message(F.text=="/start")
 async def command_start(message: Message) -> None:
-    await message.answer("Привет! Это первое сообщение бота! 1231123123123123123")
+    await message.answer("Привет! Это первое сообщение 12312312312312312312123бота! 1231123123123123123")
 
 
 async def main():
