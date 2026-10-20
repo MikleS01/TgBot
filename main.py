@@ -1,17 +1,21 @@
 import asyncio
-
+import os 
+from dotenv import load_dotenv 
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message
-
-tg_bot_token = "8708010020:AAGfBBcEKzdsQYwi7YkXd8Slb1dUYILnxHo"
-
+load_dotenv()
+tg_bot_token = os.getenv("TOKEN")
+print(tg_bot_token)
 dp = Dispatcher()
 
 
 @dp.message(F.text=="/start")
 async def command_start(message: Message) -> None:
-    await message.answer("Привет! Это первое сообщение 12312312312312312312123бота! 1231123123123123123")
+    await message.answer("Привет! Это первое сообщение ")
 
+@dp.message(F.text=="/donat")
+async def command_donate(message: Message) -> None:
+    await message.answer("Привет! Гони деньги мудила")
 
 async def main():
     bot = Bot(token=tg_bot_token)
