@@ -26,7 +26,7 @@ async def command_start(message: Message) -> None:
         ans = number1
     else:
         ans = number2
-    await message.answer(ans)
+    await message.answer(str(ans))
 
 
 async def main():
