@@ -43,7 +43,7 @@ async def command_age(message: Message):
     new_age = age + 10
     await message.answer(f"через 10 лет тебе будет {new_age} лет")
 
-@dp.message(F.text=="/random_nummber")
+@dp.message(F.text=="/random_number")
 async def random_number(message: Message):
     a = randint(0,10)
     await message.answer(f"Ваше рандомное число от 0 до 10:{a}")
