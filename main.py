@@ -52,9 +52,10 @@ async def random_number(message: Message):
     a = randint(0,10)
     await message.answer(f"Ваше рандомное число от 0 до 10 - {a}")
 
-@dp.message(F.text=="/random")
+@dp.message(F.text.startswith( "/random "))
 async def random(message: Message):
-    b = choice(names)
+    ne = message.text.split(" ")
+    b = choice(ne)
     await message.answer(f"Ваше рандомное Имя - {b}")
 
 
