@@ -55,8 +55,8 @@ async def random_number(message: Message):
 @dp.message(F.text.startswith( "/random "))
 async def random(message: Message):
     ne = message.text.split(" ")
-    b = ne.remove("/random")
-    await message.answer(f"Ваше рандомное Имя - {b}")
+    ne.remove("/random")
+    await message.answer(f"Ваше рандомное Имя - {ne}")
 
 
 async def main():
