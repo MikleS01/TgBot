@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message
 from aiogram.types import Message, BotCommand
+from random import randint
 load_dotenv()
 
 tg_bot_token = os.getenv("TOKEN")
@@ -41,6 +42,13 @@ async def command_age(message: Message):
     age = int(text[2])
     new_age = age + 10
     await message.answer(f"через 10 лет тебе будет {new_age} лет")
+
+@dp.message(F.text=="/random_nummber")
+async def random_number(message: Message):
+    a = randint(0,10)
+    await message.answer(f"Ваше рандомное число от 0 до 10:{a}")
+
+
 
 
 async def main():
