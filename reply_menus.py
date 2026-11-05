@@ -23,8 +23,8 @@ async def cmd_start(message: Message):
 
 @dp.message(F.entities)
 async def cmd_start(message: Message):
-    print(str(message.entities[0]))
-    await message.answer(str(message.entities[0]))
+    print(str(message.entities[0].custom_emoji_id))
+    await message.answer(str(message.entities[0].custom_emoji_id))
 
     
 
