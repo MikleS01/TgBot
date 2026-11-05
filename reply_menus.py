@@ -17,10 +17,6 @@ dp = Dispatcher()
 
 
 @dp.message(F.text=="/start")
-async def command_start(message: Message) -> None:
-    await message.answer("Привет! Это первое сообщение ")
-
-@dp.message(F.text=="/start")
 async def cmd_start(message: Message):
     await message.answer("Добро пожаловать в бота", reply_markup=main_menu_keyboard)
 
