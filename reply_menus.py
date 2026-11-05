@@ -21,6 +21,12 @@ async def cmd_start(message: Message):
     await message.answer("Добро пожаловать в бота", reply_markup=main_menu_keyboard)
 
 
+@dp.message(F.entities)
+async def cmd_start(message: Message):
+    print(message)
+    
+
+    
 
 
 
