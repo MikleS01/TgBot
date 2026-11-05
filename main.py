@@ -75,7 +75,7 @@ async def main():
         BotCommand(command="donat", description="Донат"),
         BotCommand(command="better", description="Большее число"),
         BotCommand(command="random", description="Случайное имя"),
-        BotCommand(command="random_number", description="Случайное число")
+        BotCommand(command="random_number", description="Случайное число"),
         BotCommand(command="random_name", description="Случайное имя из списка"),
     ])
 
