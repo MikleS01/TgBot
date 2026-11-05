@@ -59,6 +59,13 @@ async def random(message: Message):
     ne=choice(ne)
     await message.answer(f"Ваше рандомное Имя - {ne}")
 
+@dp.message(F.text.startswith( "/random_name "))
+async def random(message: Message):
+    probel = message.text.split(" ")
+    probel.remove("/random_name")
+    probel = choice(probel)
+    await message.answer(f"Ваше cчастливое Имя - {probel}")
+
 
 async def main():
     bot = Bot(token=tg_bot_token)
@@ -69,6 +76,7 @@ async def main():
         BotCommand(command="better", description="Большее число"),
         BotCommand(command="random", description="Случайное имя"),
         BotCommand(command="random_number", description="Случайное число")
+        BotCommand(command="random_name", description="Случайное имя из списка"),
     ])
 
     await dp.start_polling(bot)
