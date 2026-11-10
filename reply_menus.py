@@ -27,6 +27,10 @@ async def cmd_start(message: Message):
     await message.answer(str(message.entities[0].custom_emoji_id))
 
 
+# @dp.message(F.text.startswith( "Математика"))
+# async def cmd_start(message: Message):
+#     await message.answer(, reply_markup=main_menu_keyboard)
+
 
 
 

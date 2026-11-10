@@ -6,5 +6,17 @@ main_menu_keyboard = ReplyKeyboardMarkup(keyboard=[
 ],
 resize_keyboard=True)
 
-
+main_menu_keyboard = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text='*',style="success")],
+    [KeyboardButton(text='+/-',style="primary")],
+    [KeyboardButton(text='Назад в меню',style="danger")]
     
+],
+resize_keyboard=True)
+    
+
+main_menu_keyboard = ReplyKeyboardMarkup(keyboard=[
+    [KeyboardButton(text='В главное меню',style="danger")]
+    
+],
+resize_keyboard=True)
