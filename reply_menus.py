@@ -26,7 +26,7 @@ async def cmd_start(message: Message):
     print(str(message.entities[0].custom_emoji_id))
     await message.answer(str(message.entities[0].custom_emoji_id))
 
-    
+
 
 
 
