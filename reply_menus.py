@@ -37,7 +37,9 @@ async def cmd_start(message: Message):
 async def cmd_start(message: Message):
     await message.answer("Меню текста",reply_markup=text_menu_keyboard)
 
-
+@dp.message(F.text=="Назад в меню")
+async def cmd_start(message: Message):
+    await message.answer("Главное меню",reply_markup=main_menu_keyboard)
 
 
 

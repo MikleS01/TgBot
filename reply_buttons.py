@@ -9,14 +9,14 @@ resize_keyboard=True)
 math_menu_keyboard = ReplyKeyboardMarkup(keyboard=[
     [KeyboardButton(text='*',style="success")],
     [KeyboardButton(text='+/-',style="primary")],
-    [KeyboardButton(text='Назад в меню',style="danger")]
+    [KeyboardButton(text='Назад в меню')]
     
 ],
 resize_keyboard=True)
     
 
 text_menu_keyboard = ReplyKeyboardMarkup(keyboard=[
-    [KeyboardButton(text='В главное меню',style="danger")]
+    [KeyboardButton(text='Назад в меню')]
     
 ],
 resize_keyboard=True)
