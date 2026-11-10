@@ -7,8 +7,8 @@ main_menu_keyboard = ReplyKeyboardMarkup(keyboard=[
 resize_keyboard=True)
 
 math_menu_keyboard = ReplyKeyboardMarkup(keyboard=[
-    [KeyboardButton(text='*',style="success")],
-    [KeyboardButton(text='+/-',style="primary")],
+    [KeyboardButton(text='*')],
+    [KeyboardButton(text='+/-')],
     [KeyboardButton(text='Назад в меню')]
     
 ],

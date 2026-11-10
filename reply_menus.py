@@ -20,6 +20,7 @@ dp = Dispatcher()
 
 @dp.message(F.text=="/start")
 async def cmd_start(message: Message):
+    await message.delete()
     await message.answer("Добро пожаловать в бота", reply_markup=main_menu_keyboard)
 
 
@@ -31,14 +32,17 @@ async def cmd_start(message: Message):
 
 @dp.message(F.text=="Математика")
 async def cmd_start(message: Message):
+    await message.delete()
     await message.answer("Меню математики",reply_markup=math_menu_keyboard)
 
 @dp.message(F.text=="Текст")
 async def cmd_start(message: Message):
+    await message.delete()
     await message.answer("Меню текста",reply_markup=text_menu_keyboard)
 
 @dp.message(F.text=="Назад в меню")
 async def cmd_start(message: Message):
+    await message.delete()
     await message.answer("Главное меню",reply_markup=main_menu_keyboard)
 
 
