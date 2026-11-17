@@ -37,8 +37,7 @@ async def second_name(message: Message, state: FSMContext):
 async def third_name(message: Message, state: FSMContext):
     await message.answer("Вcе имена введены")
 
-
-
+    await state.clear() 
 
 async def main():
     bot = Bot(token=tg_bot_token)
