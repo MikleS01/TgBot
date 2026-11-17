@@ -12,7 +12,7 @@ load_dotenv()
 tg_bot_token = os.getenv("TOKEN")
 dp = Dispatcher()
 
-
+print("привеет ")
 class States(StatesGroup):
     waiting_first_name = State()
     waiting_second_name = State()
