@@ -6,8 +6,9 @@ from aiogram.types import Message, BotCommand
 from aiogram import Bot, Dispatcher, F
 import asyncio
 import os 
+from dotenv import load_dotenv 
 
-
+load_dotenv()
 tg_bot_token = os.getenv("TOKEN")
 dp = Dispatcher()
 
