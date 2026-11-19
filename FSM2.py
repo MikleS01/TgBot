@@ -25,21 +25,24 @@ async def main(message: Message, state: FSMContext):
     await message.answer("Пройдите регистрацию")
     await message.answer("введите имя")
     await state.set_state(States.waiting_name)
-
+ 
 @dp.message(States.waiting_name)
 async def age(message: Message, state: FSMContext):
     await message.answer("введите возраст")
     await state.set_state(States.waiting_age)
-   
+    
+
+
 @dp.message(States.waiting_age)
 async def age(message: Message, state: FSMContext): 
-    await message.answer("Вcе данные введены")
-    temp_data = await state.get_data()
-    data.append(temp_data["first_name"])
-    data.append(temp_data["second_name"])
-    data.append(message.text)
+    if int(message.text) >= 18:
+        await message.answer("вы достаточно взрослый что бы пользоваться нашим сервисом")
+    else:
+        await message.answer("иди играй в роблос")
     await message.answer("Все данные введены")
-    await state.clear() 
+    await state.clear()    
+    
+    
 
 
 
