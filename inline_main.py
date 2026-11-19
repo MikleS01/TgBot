@@ -9,42 +9,35 @@ import asyncio
 import os 
 from dotenv import load_dotenv 
 from random import randint,choice
+from aiogram.types import CallbackQuery
+from inline_buttons import *
 
-main_menu = InlineKeyboardMarkup(inline_keyboard=[
-    [
-        InlineKeyboardButton(text="Депай!", callback_data="btn_dep",style="success",icon_custom_emoji_id="5821077289185578407"),
-       
-    ],
-    [
-        InlineKeyboardButton(text="Играть", callback_data="btn_play",style="primary",icon_custom_emoji_id="5843973184314937720"),
-        InlineKeyboardButton(text="Вывод", callback_data="btn3_w",style="danger", icon_custom_emoji_id="5843973184314937720")
+load_dotenv()
 
-    ]
-])
-dodep_menu = InlineKeyboardMarkup(inline_keyboard=[
-    [
-        InlineKeyboardButton(text="Деп по СБП", callback_data="btn_sbp",style="success"),
-        InlineKeyboardButton(text="МИP,VISA", callback_data="btn_visa",style="success"),
-        InlineKeyboardButton(text="TRC-20", callback_data="btn_crypto",style="success")
-    ],
-    [
-        InlineKeyboardButton(text="Назад в меню", callback_data="btn_menu",style="danger",icon_custom_emoji_id="5843680709926981861")
-    ]
-])
+tg_bot_token = os.getenv("TOKEN")
+print(tg_bot_token)
+dp = Dispatcher()
 
-game_menu = InlineKeyboardMarkup(inline_keyboard=[
-    [
-        InlineKeyboardButton(text="В upgrade", callback_data="btn_upgrade")   
-    ],
-    [
-        InlineKeyboardButton(text="Кейсы", callback_data="btn_case")      
-    ],
-    [
-        InlineKeyboardButton(text="Контракт", callback_data="btn_contract")
-    ],
-    [
-        InlineKeyboardButton(text="Назад в меню", callback_data="btn_menu",style="danger",icon_custom_emoji_id="5843680709926981861")
-    ]
-])
+async def main():
+    bot = Bot(token=tg_bot_token)
 
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+
+
+
+@dp.message(F.text=="/start")
+async def cmd_start(message: Message):
+    await message.delete()
+    await message.answer("Добро пожаловать в бота", reply_markup=main_menu)
+
+
+# @router.callback_query(F.data == "btn1")
+# async def handle_btn1(callback: CallbackQuery):
+#     await callback.answer("Нажата кнопка 1")
+#     await callback.message.answer("Обратное сообщение")
 
