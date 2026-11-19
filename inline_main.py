@@ -18,13 +18,7 @@ tg_bot_token = os.getenv("TOKEN")
 print(tg_bot_token)
 dp = Dispatcher()
 
-async def main():
-    bot = Bot(token=tg_bot_token)
 
-    await dp.start_polling(bot)
-
-if __name__ == "__main__":
-    asyncio.run(main())
 
 
 
@@ -41,3 +35,10 @@ async def cmd_start(message: Message):
 #     await callback.answer("Нажата кнопка 1")
 #     await callback.message.answer("Обратное сообщение")
 
+async def main():
+    bot = Bot(token=tg_bot_token)
+
+    await dp.start_polling(bot)
+
+if __name__ == "__main__":
+    asyncio.run(main())
