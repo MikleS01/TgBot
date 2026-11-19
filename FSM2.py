@@ -19,12 +19,10 @@ class States(StatesGroup):
     waiting_name = State()
     waiting_age = State()
     waiting_aprovement = State()
+
 @dp.message(F.text=="/start")
 async def main(message: Message, state: FSMContext):
     await message.answer("Пройдите регистрацию")
-    await message.answer(States.waiting_aprovement)
-@dp.message(States.waiting_aprovement)
-async def name(message: Message, state: FSMContext):
     await message.answer("введите имя")
     await state.set_state(States.waiting_name)
 
