@@ -7,10 +7,12 @@ from aiogram import Bot, Dispatcher, F
 import asyncio
 import os 
 from dotenv import load_dotenv 
+from random import randint,choice
 
+names = []
 load_dotenv()
 tg_bot_token = os.getenv("TOKEN")
-dp = Dispatcher()
+dp = Dispatcher(storage=MemoryStorage())
 
 print("привеет ")
 class States(StatesGroup):
@@ -22,22 +24,31 @@ class States(StatesGroup):
 async def better(message: Message, state: FSMContext):
     await message.answer("Введите первое имя")
     await state.set_state(States.waiting_first_name)
+    
 
 @dp.message(States.waiting_first_name)
 async def first_name(message: Message, state: FSMContext):
     await message.answer("Введите второе имя")
     await state.set_state(States.waiting_second_name)
+    await state.update_data(first_name=message.text)
 
 @dp.message(States.waiting_second_name)
 async def second_name(message: Message, state: FSMContext):
     await message.answer("Введите третье имя")
     await state.set_state(States.waiting_third_name)
+    await state.update_data(second_name=message.text)
 
 @dp.message(States.waiting_third_name)
 async def third_name(message: Message, state: FSMContext):
     await message.answer("Вcе имена введены")
-
     await state.clear() 
+
+    temp_data = await state.get_data()
+    names.append(temp_data["first_name"])
+    names.append(temp_data["second_name"])
+    names.append(message.text)
+    print(choice(names))
+
 
 async def main():
     bot = Bot(token=tg_bot_token)

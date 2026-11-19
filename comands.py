@@ -7,7 +7,6 @@ from aiogram.types import Message, BotCommand
 from random import randint,choice
 load_dotenv()
 
-
 names = ["Анна","Иван","Мария","Алексей","Елена","Дмитрий","Ольга","Максим","София","Артём"]
 
 
