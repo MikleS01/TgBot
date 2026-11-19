@@ -41,13 +41,17 @@ async def second_name(message: Message, state: FSMContext):
 @dp.message(States.waiting_third_name)
 async def third_name(message: Message, state: FSMContext):
     await message.answer("Вcе имена введены")
-    await state.clear() 
-
     temp_data = await state.get_data()
     names.append(temp_data["first_name"])
     names.append(temp_data["second_name"])
     names.append(message.text)
     print(choice(names))
+    
+    
+    
+    await state.clear() 
+
+
 
 
 async def main():
