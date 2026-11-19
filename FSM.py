@@ -45,7 +45,7 @@ async def third_name(message: Message, state: FSMContext):
     names.append(temp_data["first_name"])
     names.append(temp_data["second_name"])
     names.append(message.text)
-    await message(choice(names))
+    await message.answer(choice(names))
     
     
     
