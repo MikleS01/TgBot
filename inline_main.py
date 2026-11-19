@@ -30,10 +30,10 @@ async def cmd_start(message: Message):
     await message.answer("Добро пожаловать в бота", reply_markup=main_menu)
 
 
-# @router.callback_query(F.data == "btn1")
-# async def handle_btn1(callback: CallbackQuery):
-#     await callback.answer("Нажата кнопка 1")
-#     await callback.message.answer("Обратное сообщение")
+@dp.callback_query(F.data == "btn_dep")
+async def handle_btn1(callback: CallbackQuery):
+    await callback.answer("Нажата кнопка 1",reply_markup=dodep_menu)
+    await callback.message.answer("Мама продай квартиру - пополнение")
 
 async def main():
     bot = Bot(token=tg_bot_token)
