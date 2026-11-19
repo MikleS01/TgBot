@@ -30,6 +30,9 @@ async def main(message: Message, state: FSMContext):
 async def age(message: Message, state: FSMContext):
     await message.answer("введите возраст")
     await state.set_state(States.waiting_age)
+   
+@dp.message(States.waiting_age)
+async def age(message: Message, state: FSMContext): 
     await message.answer("Вcе данные введены")
     temp_data = await state.get_data()
     data.append(temp_data["first_name"])
