@@ -16,7 +16,7 @@ main_menu = InlineKeyboardMarkup(inline_keyboard=[
 dodep_menu = InlineKeyboardMarkup(inline_keyboard=[
     [
         InlineKeyboardButton(text="Деп по СБП", callback_data="btn_sbp",style="success"),
-        InlineKeyboardButton(text="МИP,VISA", callback_data="btn_visa",style="success"),
+        InlineKeyboardButton(text="МИP/VISA", callback_data="btn_visa",style="success"),
         InlineKeyboardButton(text="TRC-20", callback_data="btn_crypto",style="success")
     ],
     [
